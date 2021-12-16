@@ -32,7 +32,7 @@ garpike and stingray are also present.'''
 # Kosmetika
 oddelovac = "=" * 35
 
-import pprint
+
 
 # Slovnik s uzivatelskymi daty
 data = {
@@ -62,22 +62,19 @@ print(oddelovac)
 vyber = input("Select text you want to analyze (1-3): ")
 
 while vyber != "1" and vyber != "2" and vyber != "3" and type(vyber) != int:
-        vyber = input("This text does not exist, try again: ")
+    vyber = input("This text does not exist, try again: ")
 else:
     print(f"You selected no. {vyber}")
     vyber = int(vyber)
 
 print(oddelovac)
 
-#Cisteni vybraneho textu
+# Cisteni vybraneho textu
 vybrany_text = TEXTS[vyber - 1]
 vycisteny_text = []
 
 for slovo in vybrany_text.split():
-    if slovo.isalpha():
-        vycisteny_text.append(slovo.strip(".:;,"))
-    else:
-        continue
+    vycisteny_text.append(slovo.strip(".,:;"))
 
 # Pocet slov
 pocet_slov = len(vycisteny_text)
@@ -131,13 +128,10 @@ for slovo in delky_slov:
         vyskyt_delek[slovo] = vyskyt_delek[slovo] + 1
 
 # Tisk vyskytu delek
-for atribut, hodnota in vyskyt_delek.items():
-    hvezdicky = "*" * hodnota
-    print(f"{(hodnota)} | {(hvezdicky)} | {(atribut)}")
+for delka, pocet in sorted(vyskyt_delek.items()):
+    hvezdicky = "*" * pocet
+    print(f"{(delka):>2} | {(hvezdicky):<14} | {(pocet)}")
 print(oddelovac)
-
-
-
 
 
 
