@@ -74,7 +74,9 @@ vybrany_text = TEXTS[vyber - 1]
 vycisteny_text = []
 
 for slovo in vybrany_text.split():
-    vycisteny_text.append(slovo.strip(".,:;"))
+    slovo = slovo.strip(".:;,")
+    if slovo.isalpha() or slovo.isdigit():
+        vycisteny_text.append(slovo)
 
 # Pocet slov
 pocet_slov = len(vycisteny_text)
