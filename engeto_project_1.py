@@ -32,14 +32,13 @@ garpike and stingray are also present.'''
 # Kosmetika
 oddelovac = "=" * 35
 
-
-
 # Slovnik s uzivatelskymi daty
 data = {
     'bob': '123',
     'ann': 'pass123',
     'mike': 'password123',
-    'liz': 'qwert'
+    'liz': 'qwert',
+    'martin': 'heslo'
 }
 
 # Vyžádá si od uživatele přihlašovací jméno a heslo
@@ -75,8 +74,9 @@ vycisteny_text = []
 
 for slovo in vybrany_text.split():
     slovo = slovo.strip(".:;,")
-    if slovo.isalpha() or slovo.isdigit():
+    if slovo.isalpha() or slovo.isalnum():
         vycisteny_text.append(slovo)
+
 
 # Pocet slov
 pocet_slov = len(vycisteny_text)
